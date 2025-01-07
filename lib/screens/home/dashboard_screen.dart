@@ -296,7 +296,8 @@ class DashBoardScreenState extends State<DashBoardScreen> {
           ),
           const Spacer(),
           IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.blue),
+            icon: const Icon(Icons.notifications,
+                color: Color.fromARGB(255, 23, 24, 24)),
             onPressed: () {
               Navigator.push(
                 context,
@@ -314,7 +315,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary, // Use theme color
+        color: Theme.of(context).colorScheme.error, // Use theme color
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(

@@ -137,7 +137,7 @@ class _CheckInPageState extends State<CheckInPage> {
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: theme.colorScheme.primary,
                                   foregroundColor:
-                                      const Color.fromARGB(248, 255, 255, 255),
+                                      const Color.fromARGB(255, 255, 255, 255),
                                 ),
                                 child: const Text('Update Stock'),
                               ),

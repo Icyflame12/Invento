@@ -225,8 +225,8 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
               icon: const Icon(Icons.save),
               label: const Text('Save Changes'),
               style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    theme.primaryColor, // Adapt button color to theme
+                backgroundColor: theme.secondaryHeaderColor,
+                textStyle: TextStyle(color: const Color.fromARGB(255, 7, 7, 7)),
               ),
             ),
           ],

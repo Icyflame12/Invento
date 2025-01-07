@@ -231,8 +231,8 @@ class InventoryScreen extends StatelessWidget {
       ),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: color.withOpacity(0.2),
-          child: Icon(icon, color: color),
+          backgroundColor: color.withOpacity(.9),
+          child: Icon(icon, color: Colors.red),
         ),
         title: Text(
           title,

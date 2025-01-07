@@ -55,6 +55,7 @@ class _RevenueDashboardPageState extends State<RevenueDashboardPage> {
   Future<void> _calculateRevenueData() async {
     double totalRevenue = 0.0;
     double filteredRevenue = 0.0;
+    int totalSalesCount = 0;
 
     DateTime now = DateTime.now();
     DateTime startOfDay = DateTime(now.year, now.month, now.day);
@@ -65,6 +66,7 @@ class _RevenueDashboardPageState extends State<RevenueDashboardPage> {
 
     for (var sale in salesBox.values) {
       totalRevenue += sale.totalPrice;
+      totalSalesCount++;
 
       // Calculate filtered revenue
       if (selectedFilterType == "Daily" && sale.saleDate.isAfter(startOfDay)) {
@@ -95,12 +97,14 @@ class _RevenueDashboardPageState extends State<RevenueDashboardPage> {
         .map((entry) => {'product': entry.key, 'revenue': entry.value})
         .toList();
 
+    double averageSaleValue =
+        totalSalesCount > 0 ? totalRevenue / totalSalesCount : 0.0;
     revenueNotifier.value = Revenuemodel(
       totalRevenue: totalRevenue,
       dailyRevenue: filteredRevenue,
-      monthlyRevenue: revenueNotifier.value.monthlyRevenue,
-      growthPercentage: revenueNotifier.value.growthPercentage,
-      averageSaleValue: revenueNotifier.value.averageSaleValue,
+      monthlyRevenue: filteredRevenue, // Update as needed
+      growthPercentage: 0.0, // Add growth calculation logic if required
+      averageSaleValue: averageSaleValue,
       filteredRevenue: filteredRevenue,
     );
   }
@@ -113,6 +117,21 @@ class _RevenueDashboardPageState extends State<RevenueDashboardPage> {
       DateTime date = entry.value;
       return FlSpot(index.toDouble(), dailyRevenueMap[date]!);
     }).toList();
+  }
+
+  void _showDateRangePicker() async {
+    DateTimeRange? picked = await showDateRangePicker(
+      context: context,
+      firstDate: DateTime(2000),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null) {
+      setState(() {
+        selectedDateRange = picked;
+        selectedFilterType = "Custom Range";
+      });
+      await _calculateRevenueData();
+    }
   }
 
   Widget _buildSummaryCard(String title, double value,
@@ -210,21 +229,6 @@ class _RevenueDashboardPageState extends State<RevenueDashboardPage> {
     );
   }
 
-  void _showDateRangePicker() async {
-    DateTimeRange? picked = await showDateRangePicker(
-      context: context,
-      firstDate: DateTime(2000),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      setState(() {
-        selectedDateRange = picked;
-        selectedFilterType = "Custom Range";
-      });
-      await _calculateRevenueData();
-    }
-  }
-
   Widget _buildFilterSection() {
     return Card(
       elevation: 4,
@@ -271,7 +275,7 @@ class _RevenueDashboardPageState extends State<RevenueDashboardPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Revenue Dashboard'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())

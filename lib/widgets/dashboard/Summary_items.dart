@@ -25,10 +25,10 @@ class SummaryItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              spreadRadius: 10,
+              color: const Color.fromARGB(255, 100, 100, 100).withOpacity(0.1),
+              spreadRadius: 8,
               blurRadius: 8,
-              offset: const Offset(0, 3),
+              offset: const Offset(0, 5),
             ),
           ],
         ),

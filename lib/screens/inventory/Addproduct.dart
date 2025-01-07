@@ -126,7 +126,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Product'),
-        backgroundColor: const Color(0xFF2C5F2D), // Primary Green color
+        backgroundColor:
+            Theme.of(context).appBarTheme.backgroundColor, // Theme color
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -163,6 +164,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColor),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -179,6 +182,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColor),
                   ),
                   keyboardType: TextInputType.number,
                   validator: (value) {
@@ -196,6 +201,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColor),
                   ),
                   keyboardType: TextInputType.number,
                   validator: (value) {
@@ -213,6 +220,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColor),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -228,6 +237,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColor),
                   ),
                   value:
                       _selectedCategory.isNotEmpty ? _selectedCategory : null,
@@ -277,7 +288,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
         onPressed: _addProduct,
         label: const Text('Save Product'),
         icon: const Icon(Icons.save),
-        backgroundColor: const Color(0xFF2C5F2D), // Primary Green color
+        backgroundColor: Theme.of(context).primaryColor, // Primary color
       ),
     );
   }

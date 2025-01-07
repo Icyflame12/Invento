@@ -218,6 +218,8 @@ class _SalesDashboardState extends State<SalesDashboard> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return WillPopScope(
       onWillPop: () async {
         Navigator.of(context).pushNamedAndRemoveUntil(
@@ -229,7 +231,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('📊 Sales Dashboard'),
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: theme.colorScheme.primary, // Use theme color
           actions: [
             IconButton(
               icon: const Icon(Icons.history),
@@ -247,9 +249,9 @@ class _SalesDashboardState extends State<SalesDashboard> {
                 children: [
                   Text(
                     'Sales Overview',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: theme.textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 16),
                   Row(
@@ -258,17 +260,20 @@ class _SalesDashboardState extends State<SalesDashboard> {
                       MetricCard(
                         title: 'Total Sales',
                         value: '\$${totalSales.toStringAsFixed(2)}',
-                        color: Colors.green,
+                        color:
+                            theme.colorScheme.errorContainer, // Use theme color
                       ),
                       MetricCard(
                         title: 'Products Sold',
                         value: '$productsSold',
-                        color: Colors.orange,
+                        color: theme
+                            .colorScheme.primaryContainer, // Use theme color
                       ),
                       MetricCard(
                         title: 'Top Product',
                         value: topProduct.productName,
-                        color: Colors.blue,
+                        color: theme
+                            .colorScheme.onSurfaceVariant, // Use theme color
                       ),
                     ],
                   ),
@@ -276,9 +281,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
                   if (latestSale != null) ...[
                     Text(
                       'Latest Sale',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
+                      style: theme.textTheme.titleMedium
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10),
@@ -304,7 +307,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
                     children: [
                       Text(
                         'Sales Analytics',
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: theme.textTheme.titleLarge,
                       ),
                       DropdownButton<String>(
                         value: _selectedView,
@@ -326,7 +329,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
                   Container(
                     height: 300,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: theme.scaffoldBackgroundColor,
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
@@ -344,7 +347,8 @@ class _SalesDashboardState extends State<SalesDashboard> {
                     child: ElevatedButton(
                       onPressed: _navigateToAddSalePage,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueAccent,
+                        backgroundColor:
+                            theme.colorScheme.primary, // Use theme color
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 24,

@@ -101,8 +101,8 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(
               255, 24, 9, 112), // Light green for bottom navigation bar
           selectedItemColor: Colors.white, // White color for selected items
-          unselectedItemColor:
-              Color(0xFF2C5F2D), // Dark green for unselected items
+          unselectedItemColor: Color.fromARGB(
+              255, 206, 203, 17), // Dark green for unselected items
         ),
         textTheme: const TextTheme(
           bodyLarge: TextStyle(

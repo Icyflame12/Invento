@@ -1,1 +1,81 @@
-flutter/ephemeral
+# Flutter/Dart specific
+.dart_tool/
+.packages
+.pub-cache/
+build/
+
+# Generated files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Android specific
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/release/
+android/app/build/
+
+# iOS specific
+ios/.generated/
+ios/Pods/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/Release.xcconfig
+ios/Flutter/Debug.xcconfig
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/project.xcworkspace/
+ios/Runner.xcodeproj/xcuserdata/
+ios/Runner.xcodeproj/project.pbxproj
+
+# VS Code specific
+.vscode/
+*.code-workspace
+
+# macOS specific
+macos/.flutter-plugins
+macos/Flutter/ephemeral/
+macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Windows specific
+windows/flutter/ephemeral/
+windows/.flutter-plugins
+
+# Linux specific
+linux/flutter/ephemeral/
+linux/.flutter-plugins
+
+# Web specific
+web/flutter/
+
+# IntelliJ specific
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/libraries/
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/.name
+*.iml
+*.ipr
+*.iws
+
+# Others
+*.log
+*.lock
+*.pyc
+*.pyo
+*.pdb
+*.swp
+*.class
+*.dll
+*.exe
+*.jar
+*.war
+*.so
+*.dylib
+*.tmp
+*.temp
+*.DS_Store

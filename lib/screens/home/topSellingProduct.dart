@@ -42,8 +42,8 @@ class TopSellingProducts extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        const Color(0xFF2C5F2D), // Primary Green
-                        const Color(0xFF97BC62), // Light Green
+                        const Color.fromARGB(255, 7, 5, 97), // Primary Green
+                        const Color.fromARGB(255, 21, 80, 241), // Light Green
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
